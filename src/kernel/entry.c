@@ -42,9 +42,15 @@ uint64_t gESTS;
 struct task sched_task = {.name = "sched"};
 struct task pongo_task = {.name = "main"};
 
+struct task* pongo_sched_head;
+
 char soc_name[9] = {};
 uint32_t socnum = 0x0;
 void (*sep_boot_hook)(void);
+
+uint32_t preempt_ctr;
+
+int pongo_fiq_handler(void) { return -1; }
 
 extern void pongo_main_task(uint64_t*);
 
