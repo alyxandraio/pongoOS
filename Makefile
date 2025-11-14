@@ -131,18 +131,15 @@ KPF_C                       := $(wildcard $(RA1N)/*.c) $(wildcard $(RA1N)/*.S)
 # Preserve all dependencies, and rebuild if they're missing
 .NOTINTERMEDIATE:
 
-all: $(BUILD)/Pongo.bin $(BUILD)/checkra1n-kpf-pongo | $(BUILD)
+all: $(BUILD)/Pongo.bin $(BUILD)
 
-$(BUILD)/Pongo.bin: $(BUILD)/vmacho $(BUILD)/Pongo | $(BUILD)
+$(BUILD)/Pongo.bin: $(BUILD)/vmacho $(BUILD)/Pongo $(BUILD)
 	$(BUILD)/vmacho -fM 0x80000 $(BUILD)/Pongo $@
 
-$(BUILD)/Pongo: Makefile $(PONGO_C) $(PONGO_H) $(LIB)/fixup/libc.a | $(BUILD)
+$(BUILD)/Pongo: Makefile $(PONGO_C) $(PONGO_H) $(LIB)/fixup/libc.a $(BUILD)
 	$(EMBEDDED_CC) -o $@ $(PONGO_C) $(EMBEDDED_CC_FLAGS) $(PONGO_CC_FLAGS)
 
-$(BUILD)/checkra1n-kpf-pongo: Makefile $(KPF_C) $(KPF_H) $(PONGO_H) $(LIB)/fixup/libc.a | $(BUILD)
-	$(EMBEDDED_CC) -o $@ $(KPF_C) $(EMBEDDED_CC_FLAGS) $(KPF_CC_FLAGS)
-
-$(BUILD)/vmacho: Makefile $(AUX)/vmacho.c | $(BUILD)
+$(BUILD)/vmacho: Makefile $(AUX)/vmacho.c $(BUILD)
 	$(CC) -Wall -O3 -o $@ $(AUX)/vmacho.c $(CFLAGS)
 
 $(BUILD):

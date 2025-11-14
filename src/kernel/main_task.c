@@ -37,44 +37,16 @@ void shell_main(void);
 
 */
 
+extern void xfbu_entry_iphoneos_arm64(uint64_t*);
+
+void xfbu_entry_iphoneos_arm64(uint64_t*) { }
+
 uint64_t gBootTimeTicks;
 char gFWVersion[256];
-void pongo_main_task(void) {
-    gBootTimeTicks = get_ticks();
+void pongo_main_task(uint64_t* kernel_args) {
+    xfbu_entry_iphoneos_arm64(kernel_args);
 
-    // Setup HAL
-    hal_init();
-
-    // Turn on IRQ controller
-    interrupt_init();
-
-    // Enable IRQ serial RX
-    serial_init();
-
-    // Initialize pmgr
-    pmgr_init();
-
-    /*
-        Initialize display
-     */
-    mipi_init();
-
-    /*
-        Initialize TrustZone drivers
-     */
-    tz_setup();
-
-    // Relieve WDT of its duty
-    wdt_disable();
-
-    // Recfg stuff
-    recfg_soc_setup();
-
-    // Set up AES
-    aes_init();
-
-    // Set up Secure Enclave
-    sep_setup();
+    while (1);
 
     puts("");
     puts("#==================");
