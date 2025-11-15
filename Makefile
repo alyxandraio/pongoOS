@@ -173,7 +173,7 @@ $(DEP)/Makefile:
 	git submodule update --init --recursive
 
 $(LIB)/fixup/libc.a: always | $(DEP)/Makefile
-	$(MAKE) -C $(DEP) all EMBEDDED_LLVM_BINDIR=/home/alyxandra/opt/ios-arm64e-clang-toolchain/bin
+	$(MAKE) -C $(DEP) all EMBEDDED_LLVM_BINDIR=/home/alyxandra/opt/ios-arm64e-clang-toolchain/bin CC=/home/alyxandra/opt/ios-arm64e-clang-toolchain/bin/clang
 
 clean:
 	rm -rf $(BUILD)
