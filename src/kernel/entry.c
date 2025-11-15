@@ -50,7 +50,10 @@ void (*sep_boot_hook)(void);
 
 uint32_t preempt_ctr;
 
-int pongo_fiq_handler(void) { return -1; }
+int pongo_fiq_handler(void) {
+    timer_rearm();
+    return !!(task_current()->flags & TASK_PREEMPT);
+}
 
 extern void pongo_main_task(uint64_t*, void*);
 
