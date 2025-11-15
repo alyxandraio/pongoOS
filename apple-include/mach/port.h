@@ -86,10 +86,10 @@
 #ifndef _MACH_PORT_H_
 #define _MACH_PORT_H_
 
-#include <sys/cdefs.h>
+#include "../../newlib/src/newlib/libc/include/sys/cdefs.h"
 #include <stdint.h>
-#include <mach/boolean.h>
-#include <mach/machine/vm_types.h>
+#include "./boolean.h"
+#include "./machine/vm_types.h"
 
 /*
  *	mach_port_name_t - the local identity for a Mach port
