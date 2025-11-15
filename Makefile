@@ -137,8 +137,9 @@ SOURCES_S:=$(shell find src/ -type f -name '*.S' -print)
 OBJECTS_C=$(patsubst %.c, $(BUILD_DIR)/pongo/c/%.o, $(SOURCES_C))
 OBJECTS_S=$(patsubst %.S, $(BUILD_DIR)/pongo/asm/%.o, $(SOURCES_S))
 OBJECTS_SHOEOP:=$(shell find $(BUILD_DIR)/shoeop/. -type f -name '*.o' -print)
+OBJECTS_LIBKERNEL:=$(shell find $(BUILD_DIR)/libkernel/. -type f -name '*.o' -print)
 
-EMBEDDED_CFLAGS=--target=arm64-apple-ios12.0 -std=gnu17 -D__XFBU_ARCH_ARM64_IPHONEOS -Wall -Wstrict-prototypes -Werror=incompatible-function-pointer-types -flto -ffreestanding -nostdlibinc -fno-blocks -U__nonnull -DTARGET_OS_OSX=0 -DTARGET_OS_MACCATALYST=0 -D_GNU_SOURCE -D__DYNAMIC_REENT__ -DDER_TAG_SIZE=8 -I $(LIB)/include -Os -moutline -DPONGO_VERSION='"$(PONGO_VERSION)"' -DPONGO_BUILD='"$(PONGO_BUILD)"' -DPONGO_PRIVATE=1 -I $(SRC)/lib -I $(INC) -I apple-include -I $(SRC)/kernel -I $(SRC)/drivers -I ../sources/shoeop/include -L $(LIB)/fixup
+EMBEDDED_CFLAGS=--target=arm64-apple-ios12.0 -std=gnu17 -D__XFBU_ARCH_ARM64_IPHONEOS -Wall -Wstrict-prototypes -Werror=incompatible-function-pointer-types -flto -ffreestanding -nostdlibinc -fno-blocks -U__nonnull -DTARGET_OS_OSX=0 -DTARGET_OS_MACCATALYST=0 -D_GNU_SOURCE -D__DYNAMIC_REENT__ -DDER_TAG_SIZE=8 -I $(LIB)/include -Os -moutline -DPONGO_VERSION='"$(PONGO_VERSION)"' -DPONGO_BUILD='"$(PONGO_BUILD)"' -DPONGO_PRIVATE=1 -I $(SRC)/lib -I $(INC) -I apple-include -I $(SRC)/kernel -I $(SRC)/drivers -I ../sources/shoeop/include -L $(LIB)/fixup -I ../sources/libkernel/include
 
 all: $(OBJECTS_S) $(OBJECTS_C)
 
