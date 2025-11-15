@@ -56,6 +56,6 @@ extern void pongo_main_task(uint64_t*);
 
 _Noreturn void pongo_entry(uint64_t *kernel_args, void *entryp, void (*exit_to_el1_image)(void *boot_args, void *boot_entry_point, void *trampoline))
 {
-    pongo_main_task(kernel_args);
+    pongo_main_task(kernel_args, entryp);
     while (1);
 }

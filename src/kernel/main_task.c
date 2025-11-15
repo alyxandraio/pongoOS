@@ -39,11 +39,11 @@ void shell_main(void);
 
 */
 
-extern void xfbu_entry_arm64_iphoneos(uint64_t*);
+extern void xfbu_entry_arm64_iphoneos(uint64_t*, void*);
 
 uint64_t gBootTimeTicks;
 char gFWVersion[256];
-void pongo_main_task(uint64_t* kernel_args) {
-    xfbu_entry_arm64_iphoneos(kernel_args);
+void pongo_main_task(uint64_t* kernel_args, void* entrypt) {
+    xfbu_entry_arm64_iphoneos(kernel_args, entrypt);
     while (1);
 }
