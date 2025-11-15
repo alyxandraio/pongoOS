@@ -28,7 +28,7 @@
 #include <aes/aes_private.h>
 #include <recfg/recfg_soc_private.h>
 
-#include <shoeop/entry.h>
+// #include <shoeop/entry.h>
 
 void shell_main(void);
 
@@ -38,6 +38,8 @@ void shell_main(void);
     Description: main task handler
 
 */
+
+extern void xfbu_entry_arm64_iphoneos(uint64_t*);
 
 uint64_t gBootTimeTicks;
 char gFWVersion[256];
