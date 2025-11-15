@@ -29,7 +29,7 @@
 #ifndef _SYS__PTHREAD_TYPES_H_
 #define _SYS__PTHREAD_TYPES_H_
 
-#include <sys/cdefs.h>
+#include "../../../newlib/src/newlib/libc/include/sys/cdefs.h"
 
 // pthread opaque structures
 #if defined(__LP64__)
