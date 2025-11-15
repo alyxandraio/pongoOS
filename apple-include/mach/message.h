@@ -72,14 +72,14 @@
 #define _MACH_MESSAGE_H_
 
 #include <stdint.h>
-#include <mach/port.h>
-#include <mach/boolean.h>
-#include <mach/kern_return.h>
-#include <mach/machine/vm_types.h>
+#include "./port.h"
+#include "./boolean.h"
+#include "./kern_return.h"
+#include "./machine/vm_types.h"
 
-#include <sys/cdefs.h>
-#include <sys/appleapiopts.h>
-#include <Availability.h>
+#include "../../newlib/src/newlib/libc/include/sys/cdefs.h"
+#include "../sys/appleapiopts.h"
+#include "../Availability.h"
 
 /*
  *  The timeout mechanism uses mach_msg_timeout_t values,
