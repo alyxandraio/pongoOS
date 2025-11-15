@@ -28,6 +28,8 @@
 #include <aes/aes_private.h>
 #include <recfg/recfg_soc_private.h>
 
+#include <shoeop/entry.h>
+
 void shell_main(void);
 
 /*
@@ -37,37 +39,9 @@ void shell_main(void);
 
 */
 
-extern void xfbu_entry_iphoneos_arm64(uint64_t*);
-
-void xfbu_entry_iphoneos_arm64(uint64_t*) { }
-
 uint64_t gBootTimeTicks;
 char gFWVersion[256];
 void pongo_main_task(uint64_t* kernel_args) {
     xfbu_entry_iphoneos_arm64(kernel_args);
-
     while (1);
-
-    puts("");
-    puts("#==================");
-    puts("#");
-    puts("# pongoOS " PONGO_VERSION);
-    puts("#");
-    puts("# https://checkra.in");
-    puts("#");
-    puts("#==================");
-    screen_mark_banner();
-
-    char *fwversion = dt_get_prop("/chosen", "firmware-version", NULL);
-    iprintf("Booted by: %s\n", fwversion);
-    strlcpy(gFWVersion, fwversion, 256);
-    strcpy(fwversion, "pongoOS-" PONGO_VERSION);
-#ifdef __clang__
-    iprintf("Built with: Clang %s\n", __clang_version__);
-#else
-    iprintf("Built with: GCC %s\n", __VERSION__);
-#endif
-    iprintf("Running on: %s\n", hal_platform_name());
-
-    shell_main();
 }
