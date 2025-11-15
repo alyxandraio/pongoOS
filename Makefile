@@ -174,6 +174,11 @@ $(DEP)/Makefile:
 
 $(LIB)/fixup/libc.a: always | $(DEP)/Makefile
 	$(MAKE) -C $(DEP) all EMBEDDED_LLVM_BINDIR=/home/alyxandra/opt/ios-arm64e-clang-toolchain/bin CC=/home/alyxandra/opt/ios-arm64e-clang-toolchain/bin/clang
+	rm -f newlib/build/libc/reent/lib_a-linkr.o
+	rm -f newlib/build/libc/stdlib/lib_a-mlock.o
+	rm -f newlib/build/libc/ssp/lib_a-chk_fail.o
+	rm -f newlib/build/libc/stdlib/lib_a-mlock.o
+	rm -f newlib/build/libc/ssp/lib_a-stack_protector.o
 
 clean:
 	rm -rf $(BUILD)
