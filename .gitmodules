@@ -1,3 +1,4 @@
 [submodule "newlib"]
 	path = newlib
 	url = https://github.com/alyxandraio/newlib.git
+	branch = master
