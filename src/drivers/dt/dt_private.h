@@ -27,12 +27,8 @@
 #ifndef DT_PRIVATE_H
 #define DT_PRIVATE_H
 
-#ifdef PONGO_PRIVATE
-
 #include <stddef.h>
 
 void dt_init(void *mem, size_t size);
-
-#endif /* PONGO_PRIVATE */
 
 #endif /* DT_PRIVATE_H */

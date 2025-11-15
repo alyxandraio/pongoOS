@@ -28,10 +28,6 @@
 #ifndef FUSE_PRIVATE_H
 #define FUSE_PRIVATE_H
 
-#ifdef PONGO_PRIVATE
-
 void fuse_init(void);
-
-#endif
 
 #endif
