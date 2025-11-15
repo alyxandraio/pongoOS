@@ -29,6 +29,9 @@
 #ifndef _SYS__TYPES_H_
 #define _SYS__TYPES_H_
 
+#include "../../newlib/src/newlib/libc/include/sys/cdefs.h"
+#include "../machine/_types.h"
+
 #include <sys/cdefs.h>
 #include <machine/_types.h>
 
