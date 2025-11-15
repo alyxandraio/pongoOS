@@ -145,12 +145,12 @@ all: $(OBJECTS_S) $(OBJECTS_C)
 $(BUILD_DIR)/pongo/c/%.o: %.c $(HEADERS_C)
 	mkdir -p $(@D)
 	$(EMBEDDED_CC) $(EMBEDDED_CFLAGS) -c $< -o $@
-	llvm-objcopy --prefix-symbols=_ $@
+	# llvm-objcopy --prefix-symbols=_ $@
 
 $(BUILD_DIR)/pongo/asm/%.o: %.S
 	mkdir -p $(@D)
 	$(EMBEDDED_CC) $(EMBEDDED_CFLAGS) -c $< -o $@
-	llvm-objcopy --prefix-symbols=_ $@
+	# llvm-objcopy --prefix-symbols=_ $@
 
 # Preserve all dependencies, and rebuild if they're missing
 .NOTINTERMEDIATE:
