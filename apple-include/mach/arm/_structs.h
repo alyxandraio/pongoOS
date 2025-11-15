@@ -31,7 +31,7 @@
 #ifndef _MACH_ARM__STRUCTS_H_
 #define _MACH_ARM__STRUCTS_H_
 
-#include <sys/cdefs.h> /* __DARWIN_UNIX03 */
+#include "../../../newlib/src/newlib/libc/include/sys/cdefs.h" /* __DARWIN_UNIX03 */
 
 #if __DARWIN_UNIX03
 #define _STRUCT_ARM_EXCEPTION_STATE struct __darwin_arm_exception_state
