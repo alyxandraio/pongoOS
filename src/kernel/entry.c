@@ -52,7 +52,7 @@ uint32_t preempt_ctr;
 
 int pongo_fiq_handler(void) { return -1; }
 
-extern void pongo_main_task(uint64_t*);
+extern void pongo_main_task(uint64_t*, void*);
 
 _Noreturn void pongo_entry(uint64_t *kernel_args, void *entryp, void (*exit_to_el1_image)(void *boot_args, void *boot_entry_point, void *trampoline))
 {
