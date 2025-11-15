@@ -32,9 +32,6 @@
 #include "../../newlib/src/newlib/libc/include/sys/cdefs.h"
 #include "../machine/_types.h"
 
-#include <sys/cdefs.h>
-#include <machine/_types.h>
-
 /*
  * Type definitions; takes common type definitions that must be used
  * in multiple header files due to [XSI], removes them from the system
